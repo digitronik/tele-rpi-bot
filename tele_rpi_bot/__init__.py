@@ -40,6 +40,9 @@ HELP_MESSAGE = """Commands:
 ⚪ /start – Start Message
 ⚪ /shutdown – Shutdown RPi
 ⚪ /restart – Restart RPi
+⚪ /immich_status – Get status of immich server
+⚪ /immich_up – Start immich server
+⚪ /immich_down – Stop immich server
 ⚪ /help – Show help
 """
 
