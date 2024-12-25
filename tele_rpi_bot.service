@@ -1,0 +1,23 @@
+# Move this file to /etc/systemd/system/tele_rpi_bot.service
+# Check paths as you need to point .env which hold environment viriables and virtual env path as well.
+# sudo systemctl daemon-reload 
+# sudo systemctl start tele_rpi_bot.service
+# sudo systemctl enable tele_rpi_bot.service
+
+[Unit]
+Description=Telegram RPi Bot.
+After=network-online.target nss-lookup.target
+
+[Service]
+# Activate the virtual environment and run the script
+EnvironmentFile=/home/pi/tele-rpi-bot/.env
+ExecStart=/home/pi/tele-rpi-bot/.venv/bin/python /home/pi/tele-rpi-bot/tele_rpi_bot/__init__.py
+WorkingDirectory=/home/pi/tele-rpi-bot
+StandardOutput=inherit
+StandardError=inherit
+User=pi
+Group=pi
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
